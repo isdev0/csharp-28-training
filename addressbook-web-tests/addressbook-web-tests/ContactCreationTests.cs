@@ -45,13 +45,40 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreationTest()
         {
+            OpenMainPage();
+            Login();
+            CreateContact();
+            FillContactForm();
+            SubmitContactForm();
+            Logout();
+        }
+
+        private void OpenMainPage()
+        {
             driver.Navigate().GoToUrl(baseURL + "addressbook/");
+        }
+
+        private void Login()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Logon()
+        {
             driver.FindElement(By.Name("user")).Clear();
             driver.FindElement(By.Name("user")).SendKeys("admin");
             driver.FindElement(By.Name("pass")).Clear();
             driver.FindElement(By.Name("pass")).SendKeys("secret");
             driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
+        }
+
+        private void CreateContact()
+        {
             driver.FindElement(By.LinkText("add new")).Click();
+        }
+
+        private void FillContactForm()
+        {
             driver.FindElement(By.Name("firstname")).Clear();
             driver.FindElement(By.Name("firstname")).SendKeys("fname");
             driver.FindElement(By.Name("middlename")).Clear();
@@ -98,9 +125,18 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("phone2")).SendKeys("sechome");
             driver.FindElement(By.Name("notes")).Clear();
             driver.FindElement(By.Name("notes")).SendKeys("note1\nnote2\nnote3");
+        }
+
+        private void SubmitContactForm()
+        {
             driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
+        }
+
+        private void Logout()
+        {
             driver.FindElement(By.LinkText("Logout")).Click();
         }
+
         private bool IsElementPresent(By by)
         {
             try

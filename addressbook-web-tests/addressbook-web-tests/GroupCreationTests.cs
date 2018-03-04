@@ -48,11 +48,14 @@ namespace WebAddressbookTests
             OpenMainPage();
             Login(new UserData("admin","secret"));
             OpenGroupPage();
-            CreateNewGroup();
+            CreateGroup();
+
             GroupData groupData = new GroupData("111");
             groupData.Header = "222";
             groupData.Footer = "333";
+
             FillGroupForm(groupData);
+
             SubmitGroupForm();
             GoBackToTheGroupPage();
             Logout();
@@ -83,7 +86,7 @@ namespace WebAddressbookTests
             driver.FindElement(By.Name("group_footer")).SendKeys(groupData.Footer);
         }
 
-        private void CreateNewGroup()
+        private void CreateGroup()
         {
             driver.FindElement(By.Name("new")).Click();
         }
