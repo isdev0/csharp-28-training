@@ -45,17 +45,17 @@ namespace WebAddressbookTests
         [Test]
         public void GroupCreationTest()
         {
-            OpenMainPage();
-            Login(new UserData("admin","secret"));
-            OpenGroupPage();
-            CreateGroup();
-
+            // Prepair data
             GroupData groupData = new GroupData("111");
             groupData.Header = "222";
             groupData.Footer = "333";
 
+            // Do tests
+            OpenMainPage();
+            Login(new UserData("admin","secret"));
+            OpenGroupPage();
+            CreateGroup();
             FillGroupForm(groupData);
-
             SubmitGroupForm();
             GoBackToTheGroupPage();
             Logout();

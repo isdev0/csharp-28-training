@@ -58,6 +58,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContactData.cs" />
     <Compile Include="GroupData.cs" />
     <Compile Include="ContactCreationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

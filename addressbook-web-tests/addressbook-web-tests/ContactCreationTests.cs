@@ -45,10 +45,33 @@ namespace WebAddressbookTests
         [Test]
         public void ContactCreationTest()
         {
+            // Prepair data
+            ContactData contactData = new ContactData("Ivan","Ivanov");
+            contactData.FirstName   = "fname";
+            contactData.MiddleName  = "mname";
+            contactData.LastName    = "lname";
+            contactData.NickName    = "nname";
+            contactData.Photo       = "C:\\Users\\Public\\Pictures\\Sample Pictures\\Chrysanthemum.jpg";
+            contactData.Title       = "title";
+            contactData.Company     = "company";
+            contactData.Address     = "address1\naddress2\naddress3";
+            contactData.Home        = "thome";
+            contactData.Mobile      = "tmobile";
+            contactData.Work        = "twork";
+            contactData.Fax         = "tfax";
+            contactData.Email       = "email1";
+            contactData.Email2      = "email2";
+            contactData.Email3      = "email3";
+            contactData.Homepage    = "hpage";
+            contactData.Address2    = "secaddress1\nsecaddress2\nsecaddress3";
+            contactData.Phone2      = "sechome";
+            contactData.Notes       = "note1\nnote2\nnote3";
+
+            // Do tests
             OpenMainPage();
-            Login();
+            Login(new UserData("admin", "secret"));
             CreateContact();
-            FillContactForm();
+            FillContactForm(contactData);
             SubmitContactForm();
             Logout();
         }
@@ -58,17 +81,14 @@ namespace WebAddressbookTests
             driver.Navigate().GoToUrl(baseURL + "addressbook/");
         }
 
-        private void Login()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Logon()
+        private void Login(UserData userData)
         {
             driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys("admin");
+            driver.FindElement(By.Name("user")).SendKeys(userData.Username);
+
             driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys("secret");
+            driver.FindElement(By.Name("pass")).SendKeys(userData.Password);
+
             driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
         }
 
@@ -77,54 +97,76 @@ namespace WebAddressbookTests
             driver.FindElement(By.LinkText("add new")).Click();
         }
 
-        private void FillContactForm()
+        private void FillContactForm(ContactData contactData)
         {
             driver.FindElement(By.Name("firstname")).Clear();
-            driver.FindElement(By.Name("firstname")).SendKeys("fname");
+            driver.FindElement(By.Name("firstname")).SendKeys(contactData.FirstName);
+
             driver.FindElement(By.Name("middlename")).Clear();
-            driver.FindElement(By.Name("middlename")).SendKeys("mname");
+            driver.FindElement(By.Name("middlename")).SendKeys(contactData.MiddleName);
+
             driver.FindElement(By.Name("lastname")).Clear();
-            driver.FindElement(By.Name("lastname")).SendKeys("lname");
+            driver.FindElement(By.Name("lastname")).SendKeys(contactData.LastName);
+
             driver.FindElement(By.Name("nickname")).Clear();
-            driver.FindElement(By.Name("nickname")).SendKeys("nname");
+            driver.FindElement(By.Name("nickname")).SendKeys(contactData.NickName);
+
             driver.FindElement(By.Name("photo")).Clear();
-            driver.FindElement(By.Name("photo")).SendKeys("C:\\Users\\Public\\Pictures\\Sample Pictures\\Chrysanthemum.jpg");
+            driver.FindElement(By.Name("photo")).SendKeys(contactData.Photo);
+
             driver.FindElement(By.Name("title")).Clear();
-            driver.FindElement(By.Name("title")).SendKeys("title");
+            driver.FindElement(By.Name("title")).SendKeys(contactData.Title);
+
             driver.FindElement(By.Name("company")).Clear();
-            driver.FindElement(By.Name("company")).SendKeys("company");
+            driver.FindElement(By.Name("company")).SendKeys(contactData.Company);
+
             driver.FindElement(By.Name("address")).Clear();
-            driver.FindElement(By.Name("address")).SendKeys("address1\naddress2\naddress3");
+            driver.FindElement(By.Name("address")).SendKeys(contactData.Address);
+
             driver.FindElement(By.Name("home")).Clear();
-            driver.FindElement(By.Name("home")).SendKeys("thome");
+            driver.FindElement(By.Name("home")).SendKeys(contactData.Home);
+
             driver.FindElement(By.Name("mobile")).Clear();
-            driver.FindElement(By.Name("mobile")).SendKeys("tmobile");
+            driver.FindElement(By.Name("mobile")).SendKeys(contactData.Mobile);
+
             driver.FindElement(By.Name("work")).Clear();
-            driver.FindElement(By.Name("work")).SendKeys("twork");
+            driver.FindElement(By.Name("work")).SendKeys(contactData.Work);
+
             driver.FindElement(By.Name("fax")).Clear();
-            driver.FindElement(By.Name("fax")).SendKeys("tfax");
+            driver.FindElement(By.Name("fax")).SendKeys(contactData.Fax);
+
             driver.FindElement(By.Name("email")).Clear();
-            driver.FindElement(By.Name("email")).SendKeys("email1");
+            driver.FindElement(By.Name("email")).SendKeys(contactData.Email);
+
             driver.FindElement(By.Name("email2")).Clear();
-            driver.FindElement(By.Name("email2")).SendKeys("email2");
+            driver.FindElement(By.Name("email2")).SendKeys(contactData.Email2);
+
             driver.FindElement(By.Name("email3")).Clear();
-            driver.FindElement(By.Name("email3")).SendKeys("email3");
+            driver.FindElement(By.Name("email3")).SendKeys(contactData.Email3);
+
             driver.FindElement(By.Name("homepage")).Clear();
-            driver.FindElement(By.Name("homepage")).SendKeys("hpage");
-            new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText("1");
-            new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText("January");
-            driver.FindElement(By.Name("byear")).Clear();
-            driver.FindElement(By.Name("byear")).SendKeys("2001");
-            new SelectElement(driver.FindElement(By.Name("aday"))).SelectByText("2");
-            new SelectElement(driver.FindElement(By.Name("amonth"))).SelectByText("February");
-            driver.FindElement(By.Name("ayear")).Clear();
-            driver.FindElement(By.Name("ayear")).SendKeys("2010");
+            driver.FindElement(By.Name("homepage")).SendKeys(contactData.Homepage);
+
+            //new SelectElement(driver.FindElement(By.Name("bday"))).SelectByText("1");
+            //new SelectElement(driver.FindElement(By.Name("bmonth"))).SelectByText("January");
+
+            //driver.FindElement(By.Name("byear")).Clear();
+            //driver.FindElement(By.Name("byear")).SendKeys("2001");
+
+            //new SelectElement(driver.FindElement(By.Name("aday"))).SelectByText("2");
+            //new SelectElement(driver.FindElement(By.Name("amonth"))).SelectByText("February");
+
+            //driver.FindElement(By.Name("ayear")).Clear();
+            //driver.FindElement(By.Name("ayear")).SendKeys("2010");
+
             driver.FindElement(By.Name("address2")).Clear();
-            driver.FindElement(By.Name("address2")).SendKeys("secaddress1\nsecaddress2\nsecaddress3");
+            driver.FindElement(By.Name("address2")).SendKeys(contactData.Address2);
+
             driver.FindElement(By.Name("phone2")).Clear();
-            driver.FindElement(By.Name("phone2")).SendKeys("sechome");
+            driver.FindElement(By.Name("phone2")).SendKeys(contactData.Phone2);
+
             driver.FindElement(By.Name("notes")).Clear();
-            driver.FindElement(By.Name("notes")).SendKeys("note1\nnote2\nnote3");
+            driver.FindElement(By.Name("notes")).SendKeys(contactData.Notes);
         }
 
         private void SubmitContactForm()
