@@ -30,8 +30,8 @@ namespace WebAddressbookTests
 
         public ContactData(string firstName, string lastName)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
+            this.firstName  = firstName;
+            this.lastName   = lastName;
         }
 
         public string FirstName

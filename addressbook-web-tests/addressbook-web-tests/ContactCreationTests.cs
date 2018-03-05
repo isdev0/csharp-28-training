@@ -47,9 +47,7 @@ namespace WebAddressbookTests
         {
             // Prepair data
             ContactData contactData = new ContactData("Ivan","Ivanov");
-            contactData.FirstName   = "fname";
             contactData.MiddleName  = "mname";
-            contactData.LastName    = "lname";
             contactData.NickName    = "nname";
             contactData.Photo       = "C:\\Users\\Public\\Pictures\\Sample Pictures\\Chrysanthemum.jpg";
             contactData.Title       = "title";
