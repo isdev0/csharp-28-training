@@ -49,7 +49,6 @@ namespace WebAddressbookTests
             ContactData contactData = new ContactData("Ivan","Ivanov");
             contactData.MiddleName  = "mname";
             contactData.NickName    = "nname";
-            contactData.Photo       = "C:\\Users\\Public\\Pictures\\Sample Pictures\\Chrysanthemum.jpg";
             contactData.Title       = "title";
             contactData.Company     = "company";
             contactData.Address     = "address1\naddress2\naddress3";
