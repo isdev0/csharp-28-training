@@ -21,9 +21,9 @@ namespace WebAddressbookTests
             navigationHelper.OpenMainPage();
             loginHelper.Login(new UserData("admin","secret"));
             navigationHelper.OpenGroupsPage();
-            CreateGroup();
-            FillGroupForm(groupData);
-            SubmitGroupForm();
+            groupHelper.CreateGroup();
+            groupHelper.FillGroupForm(groupData);
+            groupHelper.SubmitGroupForm();
             navigationHelper.GoBackToTheGroupPage();
             loginHelper.Logout();
         }
