@@ -7,14 +7,9 @@ using OpenQA.Selenium;
 
 namespace WebAddressbookTests
 {
-    public class ContactHelper
+    public class ContactHelper : HelperBase
     {
-        private IWebDriver driver;
-
-        public ContactHelper(IWebDriver driver)
-        {
-            this.driver = driver;
-        }
+        public ContactHelper(IWebDriver driver) : base(driver) { }
 
         public void CreateContact()
         {
