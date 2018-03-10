@@ -19,13 +19,13 @@ namespace WebAddressbookTests
 
             // Do tests
             OpenMainPage();
-            Login(new UserData("admin","secret"));
+            loginHelper.Login(new UserData("admin","secret"));
             OpenGroupsPage();
             CreateGroup();
             FillGroupForm(groupData);
             SubmitGroupForm();
             GoBackToTheGroupPage();
-            Logout();
+            loginHelper.Logout();
         }
     }
 }

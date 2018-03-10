@@ -33,11 +33,11 @@ namespace WebAddressbookTests
 
             // Do tests
             OpenMainPage();
-            Login(new UserData("admin", "secret"));
+            loginHelper.Login(new UserData("admin", "secret"));
             CreateContact();
             FillContactForm(contactData);
             SubmitContactForm();
-            Logout();
+            loginHelper.Logout();
         }
     }
 }

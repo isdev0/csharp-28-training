@@ -14,6 +14,7 @@ namespace WebAddressbookTests
     {
         protected IWebDriver driver;
         private StringBuilder verificationErrors;
+        protected LoginHelper loginHelper;
         protected string baseURL;
 
         [SetUp]
@@ -25,6 +26,9 @@ namespace WebAddressbookTests
             driver = new FirefoxDriver(options);
             baseURL = "http://localhost/";
             verificationErrors = new StringBuilder();
+
+            loginHelper = new LoginHelper(driver);
+
         }
 
         [TearDown]
@@ -44,23 +48,6 @@ namespace WebAddressbookTests
         protected void OpenMainPage()
         {
             driver.Navigate().GoToUrl(baseURL + "addressbook/");
-        }
-
-        // Login and logout
-        protected void Login(UserData userData)
-        {
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys(userData.Username);
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys(userData.Password);
-            driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
-        }
-
-        protected void Logout()
-        {
-            driver.FindElement(By.LinkText("Logout")).Click();
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys("admin");
         }
 
         // Groups
