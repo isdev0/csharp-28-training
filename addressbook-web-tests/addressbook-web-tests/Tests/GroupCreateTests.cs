@@ -7,10 +7,10 @@ using NUnit.Framework;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class GroupCreationTests : TestBase
+    public class GroupCreateTests : TestBase
     {
         [Test]
-        public void GroupCreationTest()
+        public void GroupCreateTest()
         {
             GroupData groupData = new GroupData("111");
             groupData.Header = "222";
@@ -19,7 +19,7 @@ namespace WebAddressbookTests
         }
 
         [Test]
-        public void EmptyGroupCreationTest()
+        public void GroupCreateEmptyTest()
         {
             GroupData groupData = new GroupData("");
             appManager.GroupHelper.Create(groupData);

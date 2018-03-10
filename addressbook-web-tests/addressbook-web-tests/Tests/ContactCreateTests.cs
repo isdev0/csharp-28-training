@@ -7,10 +7,10 @@ using NUnit.Framework;
 namespace WebAddressbookTests
 {
     [TestFixture]
-    public class ContactCreationTests : TestBase
+    public class ContactCreateTests : TestBase
     {
         [Test]
-        public void ContactCreationTest()
+        public void ContactCreateTest()
         {
             // Prepair data
             ContactData contactData = new ContactData("Ivan","Ivanov");
