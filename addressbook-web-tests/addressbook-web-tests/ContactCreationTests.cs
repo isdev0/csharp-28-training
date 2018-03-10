@@ -34,9 +34,9 @@ namespace WebAddressbookTests
             // Do tests
             navigationHelper.OpenMainPage();
             loginHelper.Login(new UserData("admin", "secret"));
-            CreateContact();
-            FillContactForm(contactData);
-            SubmitContactForm();
+            contactHelper.CreateContact();
+            contactHelper.FillContactForm(contactData);
+            contactHelper.SubmitContactForm();
             loginHelper.Logout();
         }
     }
