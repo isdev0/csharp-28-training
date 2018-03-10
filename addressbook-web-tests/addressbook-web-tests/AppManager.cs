@@ -23,8 +23,8 @@ namespace WebAddressbookTests
 
         public LoginHelper      LoginHelper         { get { return loginHelper; } }
         public NavigationHelper NavigationHelper    { get { return navigationHelper; } }
-        public GroupHelper      GroupHelper         { get { return GroupHelper; } }
-        public ContactHelper    ContactHelper       { get { return ContactHelper; } }
+        public GroupHelper      GroupHelper         { get { return groupHelper; } }
+        public ContactHelper    ContactHelper       { get { return contactHelper; } }
 
         public AppManager()
         {
