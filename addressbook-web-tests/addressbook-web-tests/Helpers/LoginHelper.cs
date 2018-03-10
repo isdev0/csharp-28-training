@@ -9,22 +9,22 @@ namespace WebAddressbookTests
 {
     public class LoginHelper : HelperBase
     {
-        public LoginHelper(IWebDriver driver) : base(driver) { }
+        public LoginHelper(AppManager appManager) : base(appManager) { }
 
         public void Login(UserData userData)
         {
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys(userData.Username);
-            driver.FindElement(By.Name("pass")).Clear();
-            driver.FindElement(By.Name("pass")).SendKeys(userData.Password);
-            driver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
+            webDriver.FindElement(By.Name("user")).Clear();
+            webDriver.FindElement(By.Name("user")).SendKeys(userData.Username);
+            webDriver.FindElement(By.Name("pass")).Clear();
+            webDriver.FindElement(By.Name("pass")).SendKeys(userData.Password);
+            webDriver.FindElement(By.CssSelector("input[type=\"submit\"]")).Click();
         }
 
         public void Logout()
         {
-            driver.FindElement(By.LinkText("Logout")).Click();
-            driver.FindElement(By.Name("user")).Clear();
-            driver.FindElement(By.Name("user")).SendKeys("admin");
+            webDriver.FindElement(By.LinkText("Logout")).Click();
+            webDriver.FindElement(By.Name("user")).Clear();
+            webDriver.FindElement(By.Name("user")).SendKeys("admin");
         }
     }
 }

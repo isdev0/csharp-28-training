@@ -9,36 +9,62 @@ namespace WebAddressbookTests
 {
     public class GroupHelper : HelperBase
     {
-        public GroupHelper(IWebDriver driver) : base(driver) { }
+        public GroupHelper(AppManager appManager) : base(appManager) { }
 
-        public void CreateGroup()
+        // uplevel methods
+        public GroupHelper Create(GroupData groupData)
         {
-            driver.FindElement(By.Name("new")).Click();
+            appManager.NavigationHelper.OpenGroupsPage();
+            CreateNewGroup();
+            FillGroupForm(groupData);
+            SubmitGroupForm();
+            appManager.NavigationHelper.GoBackToTheGroupPage();
+            return this;
         }
 
-        public void FillGroupForm(GroupData groupData)
+        public GroupHelper Remove(int groupIndex)
         {
-            driver.FindElement(By.Name("group_name")).Clear();
-            driver.FindElement(By.Name("group_name")).SendKeys(groupData.Name);
-            driver.FindElement(By.Name("group_header")).Clear();
-            driver.FindElement(By.Name("group_header")).SendKeys(groupData.Header);
-            driver.FindElement(By.Name("group_footer")).Clear();
-            driver.FindElement(By.Name("group_footer")).SendKeys(groupData.Footer);
+            appManager.NavigationHelper.OpenGroupsPage();
+            SelectGroup(groupIndex);
+            DeleteGroup(groupIndex);
+            appManager.NavigationHelper.GoBackToTheGroupPage();
+            return this;
         }
 
-        public void SubmitGroupForm()
+        // lowlevel methods
+        public GroupHelper CreateNewGroup()
         {
-            driver.FindElement(By.Name("submit")).Click();
+            webDriver.FindElement(By.Name("new")).Click();
+            return this;
         }
 
-        public void SelectGroup(int groupIndex)
+        public GroupHelper FillGroupForm(GroupData groupData)
         {
-            driver.FindElement(By.XPath("(//input[@name='selected[]'])[" + groupIndex + "]")).Click();
+            webDriver.FindElement(By.Name("group_name")).Clear();
+            webDriver.FindElement(By.Name("group_name")).SendKeys(groupData.Name);
+            webDriver.FindElement(By.Name("group_header")).Clear();
+            webDriver.FindElement(By.Name("group_header")).SendKeys(groupData.Header);
+            webDriver.FindElement(By.Name("group_footer")).Clear();
+            webDriver.FindElement(By.Name("group_footer")).SendKeys(groupData.Footer);
+            return this;
         }
 
-        public void DeleteGroup(int groupIndex)
+        public GroupHelper SubmitGroupForm()
         {
-            driver.FindElement(By.XPath("(//input[@name='delete'])[" + groupIndex + "]")).Click();
+            webDriver.FindElement(By.Name("submit")).Click();
+            return this;
+        }
+
+        public GroupHelper SelectGroup(int groupIndex)
+        {
+            webDriver.FindElement(By.XPath("(//input[@name='selected[]'])[" + groupIndex + "]")).Click();
+            return this;
+        }
+
+        public GroupHelper DeleteGroup(int groupIndex)
+        {
+            webDriver.FindElement(By.XPath("(//input[@name='delete'])[" + groupIndex + "]")).Click();
+            return this;
         }
     }
 }

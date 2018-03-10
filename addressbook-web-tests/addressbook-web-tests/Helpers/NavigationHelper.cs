@@ -11,24 +11,24 @@ namespace WebAddressbookTests
     {
         private string baseURL;
 
-        public NavigationHelper(IWebDriver driver, string baseURL) : base(driver)
+        public NavigationHelper(AppManager appManager) : base(appManager)
         {
-            this.baseURL = baseURL;
+            this.baseURL = appManager.BaseURL;
         }
 
         public void OpenMainPage()
         {
-            driver.Navigate().GoToUrl(baseURL + "addressbook/");
+            webDriver.Navigate().GoToUrl(baseURL + "addressbook");
         }
 
         public void OpenGroupsPage()
         {
-            driver.FindElement(By.LinkText("groups")).Click();
+            webDriver.FindElement(By.LinkText("groups")).Click();
         }
 
         public void GoBackToTheGroupPage()
         {
-            driver.FindElement(By.LinkText("group page")).Click();
+            webDriver.FindElement(By.LinkText("group page")).Click();
         }
     }
 }
