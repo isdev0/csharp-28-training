@@ -32,7 +32,7 @@ namespace WebAddressbookTests
             contactData.Notes       = "note1\nnote2\nnote3";
 
             // Do tests
-            OpenMainPage();
+            navigationHelper.OpenMainPage();
             loginHelper.Login(new UserData("admin", "secret"));
             CreateContact();
             FillContactForm(contactData);

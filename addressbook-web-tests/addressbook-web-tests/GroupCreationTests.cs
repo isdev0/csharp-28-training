@@ -18,13 +18,13 @@ namespace WebAddressbookTests
             groupData.Footer = "333";
 
             // Do tests
-            OpenMainPage();
+            navigationHelper.OpenMainPage();
             loginHelper.Login(new UserData("admin","secret"));
-            OpenGroupsPage();
+            navigationHelper.OpenGroupsPage();
             CreateGroup();
             FillGroupForm(groupData);
             SubmitGroupForm();
-            GoBackToTheGroupPage();
+            navigationHelper.GoBackToTheGroupPage();
             loginHelper.Logout();
         }
     }

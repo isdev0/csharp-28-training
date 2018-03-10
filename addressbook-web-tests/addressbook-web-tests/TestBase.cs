@@ -14,8 +14,9 @@ namespace WebAddressbookTests
     {
         protected IWebDriver driver;
         private StringBuilder verificationErrors;
-        protected LoginHelper loginHelper;
         protected string baseURL;
+        protected LoginHelper loginHelper;
+        protected NavigationHelper navigationHelper;
 
         [SetUp]
         public void SetupTest()
@@ -28,6 +29,7 @@ namespace WebAddressbookTests
             verificationErrors = new StringBuilder();
 
             loginHelper = new LoginHelper(driver);
+            navigationHelper = new NavigationHelper(driver, baseURL);
 
         }
 
@@ -45,22 +47,8 @@ namespace WebAddressbookTests
             Assert.AreEqual("", verificationErrors.ToString());
         }
 
-        protected void OpenMainPage()
-        {
-            driver.Navigate().GoToUrl(baseURL + "addressbook/");
-        }
 
         // Groups
-        protected void OpenGroupsPage()
-        {
-            driver.FindElement(By.LinkText("groups")).Click();
-        }
-
-        protected void GoBackToTheGroupPage()
-        {
-            driver.FindElement(By.LinkText("group page")).Click();
-        }
-
         protected void CreateGroup()
         {
             driver.FindElement(By.Name("new")).Click();
