@@ -30,5 +30,12 @@ namespace WebAddressbookTests
             // Do tests
             appManager.ContactHelper.Create(contactData);
         }
+
+        [Test]
+        public void ContactCreateEmptyTest()
+        {
+            ContactData contactData = new ContactData("","");
+            appManager.ContactHelper.Create(contactData);
+        }
     }
 }

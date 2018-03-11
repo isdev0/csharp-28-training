@@ -28,7 +28,7 @@ namespace WebAddressbookTests
             contactData.Notes       = "note21\nnote22\nnote23";
 
             // Do tests
-            appManager.ContactHelper.Update(1,contactData);
+            appManager.ContactHelper.Update(1, contactData);
         }
 
         [Test]
