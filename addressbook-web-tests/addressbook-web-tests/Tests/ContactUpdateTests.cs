@@ -39,6 +39,7 @@ namespace WebAddressbookTests
             contactData.MiddleName  = "Petrovitch";
             contactData.Mobile      = "+7-917-777-77-77";
             contactData.Email       = "s.ivanov@testmail.rus";
+            contactData.Work        = "";
 
             // Do tests
             appManager.ContactHelper.Update(1, contactData);
