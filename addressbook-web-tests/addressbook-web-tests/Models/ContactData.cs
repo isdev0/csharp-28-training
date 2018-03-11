@@ -1,32 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WebAddressbookTests
+﻿namespace WebAddressbookTests
 {
     public class ContactData
     {
         private string firstName;
         private string lastName;
-        private string middleName   = "";
-        private string nickName     = "";
-        private string photo        = "";
-        private string title        = "";
-        private string company      = "";
-        private string address      = "";
-        private string home         = "";
-        private string mobile       = "";
-        private string work         = "";
-        private string fax          = "";
-        private string email        = "";
-        private string email2       = "";
-        private string email3       = "";
-        private string homepage     = "";
-        private string address2     = "";
-        private string phone2       = "";
-        private string notes        = "";
+        private string middleName   = null;
+        private string nickName     = null;
+        private string photo        = null;
+        private string title        = null;
+        private string company      = null;
+        private string address      = null;
+        private string home         = null;
+        private string mobile       = null;
+        private string work         = null;
+        private string fax          = null;
+        private string email        = null;
+        private string email2       = null;
+        private string email3       = null;
+        private string homepage     = null;
+        private string address2     = null;
+        private string phone2       = null;
+        private string notes        = null;
 
         public ContactData(string firstName, string lastName)
         {

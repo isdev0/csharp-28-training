@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace WebAddressbookTests
 {
@@ -29,6 +24,11 @@ namespace WebAddressbookTests
         public void GoBackToTheGroupPage()
         {
             webDriver.FindElement(By.LinkText("group page")).Click();
+        }
+
+        public void OpenContactEditPage(string contactId="")
+        {
+            webDriver.Navigate().GoToUrl(baseURL + "addressbook/edit.php?id=" + contactId);
         }
     }
 }

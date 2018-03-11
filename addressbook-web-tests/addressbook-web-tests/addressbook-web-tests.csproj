@@ -68,6 +68,8 @@
     <Compile Include="Helpers\LoginHelper.cs" />
     <Compile Include="Helpers\NavigationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\ContactDeleteTests.cs" />
+    <Compile Include="Tests\ContactUpdateTests.cs" />
     <Compile Include="Tests\GroupCreateTests.cs" />
     <Compile Include="Tests\GroupUpdateTests.cs" />
     <Compile Include="Tests\GroupDeleteTests.cs" />
