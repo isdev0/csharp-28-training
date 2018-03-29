@@ -9,6 +9,7 @@ namespace WebAddressbookTests
         // uplevel methods
         public void Create(ContactData contactData)
         {
+            appManager.NavigationHelper.OpenMainPage();
             CreateNewContact();
             FillContactForm(contactData);
             ButtonClickByValue("Enter");
@@ -16,6 +17,7 @@ namespace WebAddressbookTests
 
         public void Update(int contactIndex, ContactData contactData)
         {
+            appManager.NavigationHelper.OpenMainPage();
             EditContactByIndex(contactIndex);
             //EditContactById(SelectContact(contactIndex));         // alternative
             FillContactForm(contactData);
@@ -24,6 +26,7 @@ namespace WebAddressbookTests
 
         public void Delete(int contactIndex)
         {
+            appManager.NavigationHelper.OpenMainPage();
             SelectContact(contactIndex);
             ButtonClickByValue("Delete");
             CloseAlertAndGetItsText();
